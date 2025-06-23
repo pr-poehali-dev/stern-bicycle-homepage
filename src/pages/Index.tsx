@@ -1,11 +1,52 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card } from "@/components/ui/card";
+import BikeImage from "@/components/BikeImage";
+import HomeSection from "@/components/sections/HomeSection";
+import AboutSection from "@/components/sections/AboutSection";
+import SpecsSection from "@/components/sections/SpecsSection";
+import ContactsSection from "@/components/sections/ContactsSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-white">
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">STERN</h1>
+          <p className="text-lg text-gray-600">Велосипеды нового поколения</p>
+        </div>
+
+        <Tabs defaultValue="home" className="w-full">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsTrigger value="home">Главная</TabsTrigger>
+            <TabsTrigger value="about">О велосипеде</TabsTrigger>
+            <TabsTrigger value="specs">Характеристики</TabsTrigger>
+            <TabsTrigger value="contacts">Контакты</TabsTrigger>
+          </TabsList>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="order-2 lg:order-1">
+              <BikeImage />
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <Card className="p-6 shadow-lg">
+                <TabsContent value="home">
+                  <HomeSection />
+                </TabsContent>
+                <TabsContent value="about">
+                  <AboutSection />
+                </TabsContent>
+                <TabsContent value="specs">
+                  <SpecsSection />
+                </TabsContent>
+                <TabsContent value="contacts">
+                  <ContactsSection />
+                </TabsContent>
+              </Card>
+            </div>
+          </div>
+        </Tabs>
       </div>
     </div>
   );
