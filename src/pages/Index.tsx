@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import BikeImage from "@/components/BikeImage";
+import BikeCard from "@/components/BikeCard";
 import HomeSection from "@/components/sections/HomeSection";
 import AboutSection from "@/components/sections/AboutSection";
 import SpecsSection from "@/components/sections/SpecsSection";
@@ -47,6 +48,11 @@ const Index = () => {
             </div>
           </div>
         </Tabs>
+
+        {/* Рекламная карточка */}
+        <div className="mt-12">
+          <BikeCard />
+        </div>
       </div>
     </div>
   );
